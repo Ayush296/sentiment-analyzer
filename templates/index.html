@@ -1,17 +1,80 @@
+<!-- templates/index.html -->
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
     <title>Sentiment Analyzer</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 500px;
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        textarea {
+            width: 100%;
+            height: 120px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            resize: none;
+            font-size: 16px;
+        }
+
+        button {
+            margin-top: 15px;
+            padding: 10px 20px;
+            border: none;
+            background-color: #0078D7;
+            color: #fff;
+            font-size: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #005ea6;
+        }
+
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #222;
+        }
+    </style>
 </head>
 <body>
-    <h1>Azure Sentiment Analyzer</h1>
-    <form method="POST">
-        <textarea name="text" rows="5" cols="50" placeholder="Enter text here"></textarea><br><br>
-        <button type="submit">Analyze</button>
-    </form>
-
-    {% if sentiment %}
-        <p>Sentiment: <strong>{{ sentiment }}</strong></p>
-    {% endif %}
+    <div class="container">
+        <h1>Sentiment Analyzer</h1>
+        <form method="post">
+            <textarea name="text" placeholder="Type your message here..." required></textarea><br>
+            <button type="submit">Analyze</button>
+        </form>
+        {% if sentiment %}
+            <div class="result">
+                Sentiment: <strong>{{ sentiment }}</strong>
+            </div>
+        {% endif %}
+    </div>
 </body>
 </html>
