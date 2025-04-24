@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sentiment Analyzer</title>
+</head>
+<body>
+    <h1>Azure Sentiment Analyzer</h1>
+    <form method="POST">
+        <textarea name="text" rows="5" cols="50" placeholder="Enter text here"></textarea><br><br>
+        <button type="submit">Analyze</button>
+    </form>
+
+    {% if sentiment %}
+        <p>Sentiment: <strong>{{ sentiment }}</strong></p>
+    {% endif %}
+</body>
+</html>
